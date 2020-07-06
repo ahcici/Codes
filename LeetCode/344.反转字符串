@@ -1,0 +1,62 @@
+/*
+344. 反转字符串
+编写一个函数，其作用是将输入的字符串反转过来。输入字符串以字符数组 char[] 的形式给出。
+
+不要给另外的数组分配额外的空间，你必须原地修改输入数组、使用 O(1) 的额外空间解决这一问题。
+
+你可以假设数组中的所有字符都是 ASCII 码表中的可打印字符。
+
+示例 1：
+
+输入：["h","e","l","l","o"]
+输出：["o","l","l","e","h"]
+示例 2：
+
+输入：["H","a","n","n","a","h"]
+输出：["h","a","n","n","a","H"]
+*/
+//直接交换
+void reverseString(char* s, int sSize){
+    int i;
+    for(i=0;i<sSize;i++)
+        scanf("%c",s[i]);
+    for(i=0;i<=sSize/2-1;i++)
+    {
+        int t;
+        t=s[i];
+        s[i]=s[sSize-i-1];
+        s[sSize-i-1]=t;
+    }
+    for(i=0;i<sSize;i++)
+        printf("%c",s[i]);
+
+}
+//上述过程能运行正确答案，但是提交到leetcode是错误的，我都不太明白leetcode中的代码到底怎么写
+
+
+void reverseString(char* s, int sSize){
+    int i;
+    for(i=0;i<=sSize/2-1;i++)
+    {
+        int t;
+        t=s[i];
+        s[i]=s[sSize-i-1];
+        s[sSize-i-1]=t;
+    }
+}
+//这个是通过了的
+
+
+//我不知道外面的main函数是怎样的，我甚至还想改成直接倒序输出
+#include<stdio.h>
+#include<stdlib.h>
+#include<string.h>
+int main()
+{
+    char s[20];
+    int i;                     //,sSize    sSize=strlen(s);
+    scanf("%s",s);
+    for(i=0;i<strlen(s);i++)   //for(i=0;i<sSize;i++)
+        printf("%c",s[strlen(s)-1-i]);       // s[sSize-1-i];
+    return 0;
+}
