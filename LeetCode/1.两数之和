@@ -1,0 +1,58 @@
+/*
+1. 两数之和
+给定一个整数数组 nums 和一个目标值 target，请你在该数组中找出和为目标值的那 两个 整数，并返回他们的数组下标。
+
+你可以假设每种输入只会对应一个答案。但是，数组中同一个元素不能使用两遍。
+
+ 
+
+示例:
+
+给定 nums = [2, 7, 11, 15], target = 9
+
+因为 nums[0] + nums[1] = 2 + 7 = 9
+所以返回 [0, 1]
+*/
+
+
+//暴力查找（用是一直这么用，学来的叫法）
+int* twoSum(int* nums, int numsSize, int target, int* returnSize)
+{
+    int i,j,flag=0;
+    *returnSize=2;//返回数组的大小是2，所以returnsize的值为2
+    int *a=(int *)malloc(2*sizeof(int));
+    for(i=0;i<numsSize-1;i++)
+    {
+        for(j=i+1;j<numsSize;j++)
+        {
+            if(nums[i]+nums[j]==target)
+            {
+                flag=1;
+                break;
+            }
+        }
+        if(flag==1)
+            break;
+    }
+    a[0]=i;
+    a[1]=j;
+    return a;
+}
+
+
+
+/*
+错误提示：load of null pointer of type 'const int'
+
+在调用函数时，如果返回值如果是一个常量则没问题。如果返回值若为指针则可能会出现该错误，假如返回的指针地址指向函数内的局部变量，在函数退出时，该变量的存储空间会被销毁，此时去访问该地址就会出现这个错误。
+
+解决办法有以下三种:
+
+    1.返回的指针使用malloc分配空间
+    2.将该变量使用static修饰 static修饰的内部变量作用域不变 但是声明周期延长到程序结束 即该变量在函数退出后仍然存在
+    3.使用全局变量
+————————————————
+版权声明：本文为CSDN博主「W__w」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。
+原文链接：https://blog.csdn.net/qq_34824576/java/article/details/86496130
+
+*/
