@@ -1,0 +1,99 @@
+/*
+896. 单调数列
+如果数组是单调递增或单调递减的，那么它是单调的。
+
+如果对于所有 i <= j，A[i] <= A[j]，那么数组 A 是单调递增的。 如果对于所有 i <= j，A[i]> = A[j]，那么数组 A 是单调递减的。
+
+当给定的数组 A 是单调数组时返回 true，否则返回 false。
+
+ 
+
+示例 1：
+
+输入：[1,2,2,3]
+输出：true
+示例 2：
+
+输入：[6,5,4,4]
+输出：true
+示例 3：
+
+输入：[1,3,2]
+输出：false
+示例 4：
+
+输入：[1,2,4,5]
+输出：true
+示例 5：
+
+输入：[1,1,1]
+输出：true
+ 
+
+提示：
+
+1 <= A.length <= 50000
+-100000 <= A[i] <= 100000
+*/
+
+//超出时间限制
+
+
+bool isMonotonic(int* A, int ASize){
+    int flag;
+    if(A[0]>=A[ASize-1])        //以头尾两个数来判断整个数组的单调
+        flag=0;
+    else
+        flag=1;
+    if(flag==0)                         //确认函数递减
+    {
+        for(int i=0;i<ASize-1;i++)
+            for(int j=i+1;j<ASize;j++)             //数组下标经常会没注意到就混淆了
+            {
+                if(A[i]<A[j])                 //只要找出一个不符合断定的单调走向，返回false
+                    return false;
+            }
+        return true;                             //循环结束都没返回值的就说明，整个数组是判断的单调走向
+    }
+    else
+    {
+        for(int i=0;i<ASize-1;i++)
+        {
+            for(int j=i+1;j<ASize;j++)
+            {
+                if(A[i]>A[j])
+                    return false;
+            }
+        }
+        return true;
+    }
+}
+
+//代码改进          只比较相邻数字的大小关系来判别是否单调
+
+bool isMonotonic(int* A, int ASize){
+    int i;
+    if(A[0]<=A[ASize-1])
+    {
+        for(i=0;i<ASize-1;i++)
+        {
+            if(A[i]>A[i+1])
+                return false;
+        }
+        return true;
+    }
+    else 
+    {
+        for(i=0;i<ASize-1;i++)
+        {
+            if(A[i]<A[i+1])
+                return false;
+        }
+        return true;
+    }
+}
+
+执行结果：   通过
+显示详情
+执行用时：     80 ms, 在所有 C 提交中击败了62.50%的用户
+内存消耗：     9.1 MB, 在所有 C 提交中击败了100.00%的用户
