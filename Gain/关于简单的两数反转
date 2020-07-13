@@ -1,0 +1,24 @@
+#include<stdio.h>
+#include<stdlib.h>
+
+int main()
+{
+    int a,sum=0;
+    while(~scanf("%d",&a))
+    {
+        sum=0;
+        while(a%10!=0)
+        {
+            sum=sum*10+a%10;
+            a/=10;
+        }
+        printf("%d\n",sum);
+    }
+    return 0;
+}
+
+
+/*
+数学能力欠缺啊，竟然一道水题能花半小时
+多刷题多总结经验，快速提高
+*/
