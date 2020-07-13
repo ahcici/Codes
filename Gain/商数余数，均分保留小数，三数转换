@@ -1,0 +1,46 @@
+#include<stdio.h>
+#include<stdlib.h>
+#include<math.h>
+
+
+/*
+int main()
+{
+    int a,b;
+    while(~scanf("%d%d",&a,&b))
+    {
+        printf("商是%d余数是%d\n",a/b,a%b);
+    }
+    return 0;
+}
+*/
+/*
+int main()
+{
+    double a,b,c,aver;
+    int n;
+    while(~scanf("%lf%lf%lf",&a,&b,&c))
+    {
+        aver=(a+b+c)/3;
+        printf("%f\n",aver);
+        printf("请您输入想要保留的小数位数:");
+        scanf("%d",&n);
+        aver=aver*pow(10,n)+0.5;
+        printf("保留小数%d位后:%f\n",n,(int)(aver)/pow(10,n));
+    }
+    return 0;
+}
+*/
+int main()
+{
+    int a,b,c,t;
+    while(~scanf("%d%d%d",&a,&b,&c))
+    {
+        t=c;
+        c=b;
+        b=a;
+        a=t;
+        printf("%d %d %d\n",a,b,c);
+    }
+    return 0;
+}
