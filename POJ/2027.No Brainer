@@ -1,0 +1,56 @@
+/*
+No Brainer
+
+ Time Limit : 2000/1000ms (Java/Other)   Memory Limit : 60000/30000K (Java/Other)
+Total Submission(s) : 44   Accepted Submission(s) : 34
+
+Problem Description
+Zombies love to eat brains. Yum.
+
+Input
+The first line contains a single integer n indicating the number of data sets. 
+<br> <br>The following n lines each represent a data set. Each data set will be formatted according to the following description:
+<br> <br>A single data set consists of a line "X Y", where X is the number of brains the zombie eats
+and Y is the number of brains the zombie requires to stay alive. <br>
+ 
+
+Output
+For each data set, there will be exactly one line of output.
+This line will be "MMM BRAINS" if the number of brains
+the zombie eats is greater than or equal to the number of brains the zombie requires to stay alive. 
+Otherwise, the line will be "NO BRAINS".
+ 
+
+Sample Input
+3
+4 5
+3 3
+4 3
+ 
+
+Sample Output
+NO BRAINS
+MMM BRAINS
+MMM BRAINS
+*/
+
+#include <stdio.h>
+int main()
+{
+    int n,x,y;
+    scanf("%d",&n);
+    while(n--)
+    {
+        scanf("%d%d",&x,&y);
+        if(x>=y)
+        {
+            printf("MMM BRAINS\n");
+        }
+        else
+            printf("NO BRAINS\n");
+            /*
+            x>=y?printf("MMM BRAINS\n"):printf("NO BRAINS\n");
+            */
+    }
+    return 0;
+}
