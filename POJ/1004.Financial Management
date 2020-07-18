@@ -1,0 +1,94 @@
+/*
+Financial Management
+
+Time Limit : 2000/1000ms (Java/Other)   Memory Limit : 20000/10000K (Java/Other)
+Total Submission(s) : 184   Accepted Submission(s) : 52
+
+Problem Description
+Larry graduated this year and finally has a job. He's making a lot of money,
+but somehow never seems to have enough. 
+Larry has decided that he needs to grab hold of his financial portfolio and solve his financing problems.
+The first step is to figure out what's been going on with his money.
+Larry has his bank account statements and wants to see how much money he has.
+Help Larry by writing a program to take his closing balance from each of the past twelve months and calculate his average account balance.
+ 
+
+Input
+The input will be twelve lines.
+Each line will contain the closing balance of his bank account for a particular month. 
+Each number will be positive and displayed to the penny. No dollar sign will be included.
+ 
+
+Output
+The output will be a single number, the average (mean) of the closing balances for the twelve months. 
+It will be rounded to the nearest penny, preceded immediately by a dollar sign, and followed by the end-of-line.
+There will be no other spaces or characters in the output.
+ 
+
+Sample Input
+100.00
+489.12
+12454.12
+1234.10
+823.05
+109.20
+5.27
+1542.25
+839.18
+83.99
+1295.01
+1.75
+ 
+
+Sample Output
+$1581.42
+*/
+//这道题是财务管理
+//我的理解就是求十二个月的金额的平均值
+//最开始我是写的下面一段代码
+int main()
+ {
+     double s[12];
+     double sum=0;     //因为是求平均数，我将所有与金额有关的变量全部定义为double
+     int i;
+     for(i=0;i<12;i++)
+     {
+         scanf("%lf",&s[i]);
+         sum+=s[i];
+     }
+     printf("$%.2f",sum/12);        //这个是用数组来存储每月金额
+     return 0;
+ }     
+ //当我回过头看的时候，我又重新写了下面这段代码，但是不能通过
+ //所以我想问问你们，可以帮我解决不？
+ 
+//为什么这样不行？？？
+#include <stdio.h>
+int main()
+{
+    int n=12;
+    double salary=0;
+    while(n--)
+    {
+        scanf("%lf",&salary);
+        salary+=salary;       //直接计算十二个数的总值
+    }
+    printf("$%.2f",salary/12);
+    return 0;
+}
+
+//每次重新赋值将salary值改变了
+
+#include <stdio.h>
+int main()
+{
+    int n=12;
+    double salary=0,sum=0;
+    while(n--)
+    {
+        scanf("%lf",&salary);
+        sum+=salary;       //直接计算十二个数的总值
+    }
+    printf("$%.2f",sum/12);
+    return 0;
+}
