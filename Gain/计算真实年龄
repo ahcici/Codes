@@ -1,0 +1,16 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+    int y,m,d,yy,mm,dd;
+    while(~scanf("%d%d%d",&y,&m,&d))
+    {
+        scanf("%d%d%d",&yy,&mm,&dd);
+        if(m>mm)
+            printf("真实年龄是%d岁%d月%d天\n",yy-y-1,m-mm,abs(d-dd));
+        else
+            printf("真实年龄是%d岁%d月%d天\n",yy-y,mm-m,abs(d-dd));
+    }
+    return 0;
+}
