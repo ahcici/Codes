@@ -1,0 +1,25 @@
+/*
+编写程序，通过调用随机函数给5*6的二维数组元素赋值10~40内的整数，并求出每行元素的平均值。
+*/
+
+#include <stdio.h>
+#include <stdlib.h>
+#define M 5
+#define N 6
+int i,j;
+void getvalue(int a[M][N])
+{
+    for(i=0;i<M;i++)
+    {
+        int sum=0;
+    for(j=0;j<N;j++)
+            a[i][j]=rand()%31+10,sum+=a[i][j],printf("%d ",a[i][j]);
+    printf("%.2f\n",(double)(sum)/N);
+    }
+}
+int main()
+{
+    int a[M][N];
+    getvalue(a);
+    return 0;
+}
