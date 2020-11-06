@@ -1,0 +1,40 @@
+/**
+*分析：
+*     1.定义用户名和密码（已经存在的）或者由用户设定默认的
+*     2.键盘录入登录的用户名和密码（自己输入的）
+*     3.比较（1）和（2）是否相等，如果相等，登录成功，否则，提示还有几次机会
+*/
+
+
+
+
+package cn.hncu;
+
+import java.util.Scanner;
+
+//登陆一个系统，给三次机会
+public class Test {
+    public static void main(String[] args){
+        Scanner sc = new Scanner(System.in);
+        String userName = sc.nextLine();
+        String passWord = sc.nextLine();
+        int i;
+        for( i=0;i<3;i++) {
+            System.out.println("请输入用户名：");
+            String name = sc.nextLine();
+            System.out.println("请输入密码：");
+            String word = sc.nextLine();
+            if(name.equals(userName)){
+                if(word.equals(passWord)){
+                    System.out.println("登录成功");break;
+                }else{
+                    System.out.println("密码错误登录失败，你还可以输入"+(2-i )+"次");
+                }
+            }else {
+                System.out.println("用户名错误登录失败，你还可以输入"+(2-i )+"次");
+            }
+        }
+        if (i>=3)
+        System.out.println("无法再次输入");
+    }
+}
