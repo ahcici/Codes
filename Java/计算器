@@ -1,0 +1,52 @@
+import java.util.Scanner;
+
+//需求分析：做一个可以重复计算的计算器
+
+
+public class HelloWorld {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        Method method = new Method();
+        while (true) {
+            char c = scanner.next().charAt(0);
+            switch (c) {
+                case '+':
+                    method.add(scanner.nextInt(), scanner.nextInt());
+                    break;
+                case '-':
+                    method.sub(scanner.nextInt(), scanner.nextInt());
+                    break;
+                case '*':
+                    method.mul(scanner.nextInt(), scanner.nextInt());
+                    break;
+                case '/':
+                    method.div(scanner.nextInt(), scanner.nextInt());
+                    break;
+                default:
+                    System.out.println("输入有误");
+                    return;
+            }
+        }
+    }
+}
+
+
+
+
+
+package cn.hncu;
+
+public class Method {
+    public void add(int a,int b) {
+        System.out.println(a+b);
+    }
+    public void  sub(int a,int b) {
+        System.out.println(a-b);
+    }
+    public void  mul(int a,int b) {
+        System.out.println(a*b);
+    }
+    public void div(int a,int b) {
+        System.out.println(a/b);
+    }
+}
